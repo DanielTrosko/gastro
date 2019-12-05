@@ -6,12 +6,11 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import java.math.BigDecimal;
 
 @Getter
 @Setter
 @Entity
-public class User extends BaseEntity {
+public class BaseUser extends BaseEntity {
     @Column(unique = true)
     private String username;
     private String password;
@@ -19,6 +18,5 @@ public class User extends BaseEntity {
     private String firstName;
     @Column(name = "second_name")
     private String secondName;
-    private BigDecimal balance;
 
 }
