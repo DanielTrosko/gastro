@@ -12,9 +12,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-@Getter
-@Setter
+
 @Entity
+@Getter @Setter
 public class Product extends BaseEntity {
     @NotBlank
     private String name;
