@@ -35,4 +35,9 @@ public class WaitressService {
         Waitress waitress = WaitressMapper.toEntity(waitressDTO);
         waitressRepository.save(waitress);
     }
+    public String getUsedUsername(String username){
+        Optional<Waitress> waitress = waitressRepository.getWaitressByUsername(username);
+        WaitressDTO waitressDTO = new WaitressDTO();
+        return waitress.map(Waitress::getUsername).orElse("");
+    }
 }

@@ -5,6 +5,8 @@ import it.danieltrosko.gastro.services.WaitressService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.net.http.HttpResponse;
 
 
 @RestController(value = "/waitress/")
@@ -26,8 +28,15 @@ public class WaitressController {
     }
 
     @PostMapping(value = "/waitress")
-    @ResponseStatus(value = HttpStatus.OK)
-    public void createOrUpdateWaitress(@ModelAttribute("WaitressDTO") WaitressDTO waitressDTO) {
-        waitressService.createOrUpdateWaitress(waitressDTO);
+    public String createOrUpdateWaitress(@ModelAttribute("WaitressDTO") WaitressDTO waitressDTO, HttpServletResponse httpServletResponse) {
+        if (waitressDTO.getUsername().equals(waitressService.getUsedUsername(waitressDTO.getUsername()))) {
+            httpServletResponse.setStatus(HttpServletResponse.SC_CONFLICT);
+            return "Username is already used";
+
+        } else {
+            waitressService.createOrUpdateWaitress(waitressDTO);
+            httpServletResponse.setStatus(HttpServletResponse.SC_OK);
+            return "Waitress has been added";
+        }
     }
 }

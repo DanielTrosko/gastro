@@ -20,3 +20,5 @@ public class Waitress extends BaseEntity {
     private String secondName;
     private BigDecimal balance;
 }
+
+
