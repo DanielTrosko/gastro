@@ -13,6 +13,7 @@ public class WaitressMapper {
         waitress.setPassword(waitressDTO.getPassword());
         waitress.setFirstName(waitressDTO.getFirstName());
         waitress.setSecondName(waitressDTO.getSecondName());
+        waitress.setBalance(waitressDTO.getBalance());
         waitress.setCreatedOn(waitressDTO.getCreatedOn());
         waitress.setUpdatedOn(waitressDTO.getUpdateOn());
         return waitress;
@@ -25,6 +26,7 @@ public class WaitressMapper {
         waitressDTO.setPassword(waitress.getPassword());
         waitressDTO.setFirstName(waitress.getFirstName());
         waitressDTO.setSecondName(waitress.getSecondName());
+        waitressDTO.setBalance(waitress.getBalance());
         waitressDTO.setCreatedOn(waitress.getCreatedOn());
         waitressDTO.setUpdateOn(waitress.getCreatedOn());
         return waitressDTO;
