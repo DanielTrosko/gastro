@@ -24,8 +24,6 @@ public class WaitressController {
         String username = param.get("username");
         String password = param.get("password");
         WaitressDTO waitressDTO = waitressService.getByUsername(username);
-        System.out.println(username);
-        System.out.println(password);
         if (waitressDTO.getPassword().equals(password)){
             httpServletResponse.setStatus(HttpServletResponse.SC_OK);
             return true;
